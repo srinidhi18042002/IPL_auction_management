@@ -1,0 +1,1 @@
+create view experienced_batsman as select player_name,player_team_name,runs_scored from player where runs_scored > 2000;

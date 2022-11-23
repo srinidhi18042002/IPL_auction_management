@@ -1,0 +1,6 @@
+1. create table auctioneer(auc_id varchar(10),country varchar(10),auc_name varchar(20),number_of_auctions_auctioneered int,tournament_tenure int,primary key(auc_id));
+2. create table player(player_id varchar(20),player_team_name varchar(20),primary key(player_id,player_team_name),base_price int,player_name varchar(50),player_type varchar(20),wickets_take int, runs_scored int,player_country varchar(20),year_of_auction varchar(20),player_auc_id varchar(10),foreign key(player_auc_id) references auctioneer(auc_id));
+3. create table award(a_name varchar(10),type_of_award varchar(20),cash_prize_in_rupees int,team_received_for varchar(10),award_player_id varchar(20),foreign key(award_player_id) references player(player_id));
+4.  create table team(team_name varchar(20),budget_in_rupees int,purse_remaining_in_rupees int,purse_spent_in_rupees int,region_representing varchar(20),team_owner_id varchar(10),primary key(team_owner_id),team_owner_type varchar(20),team_owner_name varchar(20),team_player_id varchar(20));
+5. create table previous_records(state_team varchar(10),prev_team varchar(10),no_of_teams_played_for_prev int,debut_date DATE,career_span_in_years int,prevrec_player_id varchar(20),foreign key(prevrec_player_id)references player(player_id));
+-- mysql.exe --user=root --password=1234

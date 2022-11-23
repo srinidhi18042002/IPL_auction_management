@@ -1,0 +1,17 @@
+#for player table:
+insert into player values("007","DC",2,"Axar Patel","All-rounder",86,1059,"India","2023","2k23001",8);
+
+
+#for auctioneer
+ insert into auctioneer values("2k23002","Australia","Billy",8,2);
+
+
+#for award:
+
+insert into award values("MOT","Trophy and cash",100000,"DC","007");
+
+#for previous_record:
+insert into previous_records values("DC","CSK",3,2014-01-21,8,"009");
+
+#for team:
+insert into team values ("RCB",90,67,23,"Bangalore","OW001","Business man","Malya");

@@ -1,0 +1,17 @@
+DELIMITER $$
+
+CREATE trigger auc_checker
+before insert on auctioneer
+for each row
+BEGIN
+	DECLARE msg VARCHAR(255);
+	SET msg=("Auctioneer not qualified to conduct");
+	if new.number_of_auctions_auctioneered < 1  THEN 
+	SIGNAL SQLSTATE '45000'
+	SET MESSAGE_TEXT = msg;
+	END IF;
+END $$
+
+DELIMITER ;
+
+insert into auctioneer values ("2k23004","UK","Charles",0,2);

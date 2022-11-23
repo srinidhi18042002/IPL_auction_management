@@ -1,0 +1,6 @@
+nested queries: 
+--1) display those previous records who's career has lasted more than 10 years:
+select * from previous_records where prevrec_player_id in ( select prevrec_player_id from previous_records where career_span_in_years > 10);
+
+-- 2) display those players details who have taken more than 20 wickets:
+select * from player where player_id in (select player_id from player where wickets_take > 20);

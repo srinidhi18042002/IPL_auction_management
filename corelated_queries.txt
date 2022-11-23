@@ -1,0 +1,9 @@
+Corelated queries:
+1) --display previous records of those players whp have played for more than one team.
+select * from previous_records p where exists(select prevrec_player_id from previous_records r where p.prevrec_player_id = r.prevrec_player_id and no_of_teams_played_for_prev > 1);
+
+
+2) --display player details of players who have scored more than 2000 runs.
+select * from player p where exists( select player_id from player r where p.player_id = r.player_id AND runs_scored > 2000);
+
+

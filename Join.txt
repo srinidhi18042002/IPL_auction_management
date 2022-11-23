@@ -1,0 +1,53 @@
+Inner join 1: 
+-- names of players who have won at least one award
+select player.player_id,player.player_name,award.a_name,award.type_of_award
+    -> from player
+    -> inner join award
+    -> on player.player_id = award.award_player_id;
+
+
+
+Inner join 2: 
+--names of players who have played more than 10 years of ipl.
+select player.player_id,player.player_name, previous_records.career_span_in_years,previous_records.debut_date
+from player
+inner join previous_records
+on player.player_id = previous_records.prevrec_player_id
+where previous_records.career_span_in_years > 10;
+
+
+
+
+
+
+Left outer join 1:
+
+-- names of player who are sold (who have a team)
+select player.player_name,team.team_name from team left join player on  player.player_team_name = team.team_name;
+
+
+Left outer join 2:
+--names of players who have any record in ipl previously
+select player.player_name,previous_records.prev_team,player.player_id from previous_records left join player on player.player_id=previous_records.prevrec_player_id;
+
+
+Right Outer join 1:
+--Details of players who have won any award:
+select player.player_name,player.player_id,award.a_name from player right join award on player.player_id = award.award_player_id;
+
+Right outer join 2:
+-- teams that have bought at least one player: 
+select distinct player.player_team_name from team right join player on player.player_team_name = team.team_name;
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+Set Operations:
+--1) Display those player details who either have 1000 runs or 100 wickets
+select * from player where ( runs_scored > 1000 or wickets_take > 100);
+
+--2) display those I players who have been sold for more than 10cr:
+select * from player where ( player_sold_for > 10 and player_team_name = "MI");

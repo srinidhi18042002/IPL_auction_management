@@ -1,0 +1,27 @@
+delimiter $$
+Create function get_budget(T_name varchar(255))
+returns varchar(255) 
+deterministic
+begin
+   declare temp int;
+   declare temp1 int;
+
+select sum(player_sold_for) into temp
+from player
+where   player_team_name= T_name;
+
+select avg(player_sold_for) into temp1 from player where player_team_name =T_name;
+		
+   return(CONCAT("budget left ",(90-temp),"Cr","  Team avg salary spent: ",temp1));
+end;
+$$
+delimiter ;
+select distinct player_team_name,get_budget(player_team_name) from player;
+ 
+
+
+
+
+
+
+
